@@ -1,0 +1,6 @@
+{
+  "name": "faucille-boards-v3",
+  "private": true,
+  "type": "module",
+  "devDependencies": { "three": "0.170.0", "esbuild": "0.24.0" }
+}

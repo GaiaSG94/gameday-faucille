@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Faucille · V1 · 01 Étang au crépuscule</title>
+<style>
+/* ============ SHEET (planche) ============ */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#cfd0c8}
+body{font-family:"Helvetica Neue","Ubuntu Sans",Arial,"Liberation Sans",sans-serif;color:#1c1d18;overflow-x:auto}
+.sheet{width:1980px;padding:40px 48px 56px}
+.sh-head{display:grid;grid-template-columns:400px 1fr 520px;gap:40px;align-items:start;margin-bottom:32px}
+.sh-id .k,.fr-l{font:600 11px/1 "DejaVu Sans Mono",Menlo,monospace;letter-spacing:.12em;text-transform:uppercase;color:#62655a}
+.sh-id h1{font:400 44px/1.05 "Iowan Old Style",Charter,"Bitstream Charter",Georgia,serif;margin-top:10px}
+.sh-why{font-size:15px;line-height:1.55;max-width:720px;color:#2c2e27}
+.sh-why b{font-weight:600}
+.sh-spec{display:flex;flex-direction:column;gap:10px}
+.sw{display:flex;gap:8px}
+.sw span{flex:1;height:58px;border-radius:4px;padding:6px;font:10px/1.3 "DejaVu Sans Mono",monospace;display:flex;align-items:flex-end;border:1px solid rgba(0,0,0,.08)}
+.ty{font-size:12px;color:#474a40;line-height:1.5}
+.frames{display:flex;gap:48px;align-items:flex-start}
+.fr-l{margin-bottom:10px}
+.states{margin-top:44px}
+.st-row{display:flex;gap:24px;align-items:flex-start;flex-wrap:wrap}
+.st{display:flex;flex-direction:column;gap:6px;width:170px}
+.st-box{width:170px;height:230px;border-radius:10px;overflow:hidden;box-shadow:0 14px 30px -18px rgba(0,0,0,.45)}
+.st b{font:600 12px/1.2 "Helvetica Neue",Arial,sans-serif;margin-top:4px}
+.st i{font:normal 11px/1.35 "DejaVu Sans Mono",monospace;color:#62655a}
+.foot{margin-top:36px;max-width:1100px;font:12px/1.5 "DejaVu Sans Mono",monospace;color:#62655a}
+
+/* ============ NEUTRAL HOST CHROME (generic feed, not branded) ============ */
+.desk{width:1440px;height:900px;background:#f6f7f8;border-radius:10px;overflow:hidden;box-shadow:0 30px 60px -30px rgba(0,0,0,.35);font-family:"Helvetica Neue","Ubuntu Sans",Arial,sans-serif}
+.d-top{height:56px;background:#fff;border-bottom:1px solid #e4e6e8;display:flex;align-items:center;gap:24px;padding:0 24px}
+.d-logo{width:96px;height:22px;border-radius:6px;background:#dfe2e5}
+.d-search{flex:0 0 560px;margin:0 auto;height:38px;border-radius:19px;background:#eef0f2;color:#8a9096;font-size:14px;display:flex;align-items:center;padding:0 18px}
+.d-user{width:34px;height:34px;border-radius:50%;background:#dfe2e5}
+.d-body{display:grid;grid-template-columns:240px 768px 330px;gap:28px;padding:16px 24px 0;justify-content:center}
+.d-nav{display:flex;flex-direction:column;gap:14px;padding-top:8px}
+.d-nav span{height:12px;border-radius:6px;background:#e3e6e9}
+.d-nav span:nth-child(3n){width:70%}.d-nav span:nth-child(4n){width:55%}
+.post{background:#fff;border:1px solid #e4e6e8;border-radius:12px;padding:10px 16px 4px}
+.post-h{display:flex;align-items:center;gap:8px;font-size:12px;color:#6b7176;height:26px}
+.post-h .av{width:22px;height:22px;border-radius:50%;background:#16301f;color:#c9d96b;font:italic 700 12px/22px Georgia,serif;text-align:center}
+.post-h b{color:#1f2326;font-weight:600}
+.post-t{font-size:18px;font-weight:600;color:#1f2326;margin:2px 0 8px;letter-spacing:-.01em}
+.post-body{border-radius:10px;overflow:hidden}
+.post-f{display:flex;gap:10px;height:40px;align-items:center;font-size:12px;font-weight:600;color:#53595e}
+.post-f span{background:#eef0f2;border-radius:16px;padding:7px 12px}
+.d-side .card{background:#fff;border:1px solid #e4e6e8;border-radius:12px;padding:16px;font-size:13px;color:#3b4146;line-height:1.5}
+.d-side .card h4{font-size:14px;color:#1f2326;margin-bottom:6px}
+.d-side .card+.card{margin-top:16px}
+.d-side .cm{border-top:1px solid #eef0f2;padding:10px 0;font-size:13px}
+.d-side .cm b{font-size:12px;color:#6b7176;font-weight:600;display:block;margin-bottom:2px}
+.mob{width:390px;height:844px;background:#fff;border-radius:44px;overflow:hidden;box-shadow:0 30px 60px -30px rgba(0,0,0,.4);outline:10px solid #111;font-family:"Helvetica Neue","Ubuntu Sans",Arial,sans-serif;display:flex;flex-direction:column}
+.m-status{height:44px;flex:none;display:flex;justify-content:space-between;align-items:center;padding:0 28px;font-size:14px;font-weight:600;color:#111}
+.m-bar{height:42px;flex:none;display:flex;align-items:center;gap:12px;padding:0 14px;border-bottom:1px solid #eceef0;font-size:14px;font-weight:600;color:#1f2326}
+.m-bar .bk{font-size:22px;color:#6b7176}
+.m-post{padding:8px 14px 8px;flex:none}
+.m-post .post-t{font-size:15px;margin:0}
+.m-game{flex:1;min-height:0;overflow:hidden}
+.m-foot{height:48px;flex:none;display:flex;gap:8px;align-items:center;padding:0 14px;border-top:1px solid #eceef0;font-size:12px;font-weight:600;color:#53595e}
+.m-foot span{background:#eef0f2;border-radius:16px;padding:7px 11px}
+
+/* ============ GAME LAYOUTS (same markup, two arrangements) ============ */
+.g .brand{grid-area:brand}.g .rule{grid-area:rule}.g .field{grid-area:field}
+.g .score{grid-area:score}.g .timer{grid-area:timer}.g .basket{grid-area:basket}.g .streak{grid-area:streak}
+.g--d{width:736px;height:680px;padding:20px;display:grid;column-gap:20px;row-gap:22px;
+  grid-template-columns:164px 328px 164px;grid-template-rows:auto auto 1fr auto;
+  grid-template-areas:"brand field score" "rule field timer" ". field ." "streak field basket"}
+.g--d .score,.g--d .timer,.g--d .basket{text-align:left}
+.g--m{width:390px;height:100%;display:grid;column-gap:18px;
+  grid-template-columns:1fr auto auto;grid-template-rows:auto auto auto 1fr;
+  grid-template-areas:"brand timer score" "rule rule rule" "field field field" "basket basket streak"}
+.g--m .brand{padding:12px 0 8px 16px}
+.g--m .timer{padding-top:12px;text-align:right}
+.g--m .score{padding:12px 16px 0 0;text-align:right}
+.g--m .score .cb{display:none}
+.g--m .rule{padding:0 16px 10px}
+.g--m .basket{padding:10px 0 0 16px}
+.g--m .basket .v,.g--m .basket .ms{display:inline-block;margin-right:10px}
+.g--m .streak{padding:10px 16px 0 0;text-align:right}
+
+.st-box [class^="btn"]{white-space:nowrap;padding-left:18px;padding-right:18px}
+
+
+.g{--bg:#16301f;--deep:#0c1b11;--reed:#c9d96b;--head:#a7b54f;--gold:#e3b04b;--mute:rgba(201,217,107,.55);
+  --serif:"Bodoni 72","Didot","Bodoni Moda","P052","Palatino Linotype",Palatino,Georgia,serif;
+  --sans:"Helvetica Neue","Ubuntu Sans","Nimbus Sans",Arial,sans-serif;
+  background:var(--bg);color:var(--reed);font-family:var(--sans)}
+.g .brand .nm{font:italic 400 34px/1 var(--serif);letter-spacing:.01em;color:var(--reed)}
+.g .brand .dy{font:600 10.5px/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--mute);margin-top:8px}
+.g .rule{font:400 13.5px/1.45 var(--sans);color:var(--mute)}
+.g .rule b{color:var(--reed);font-weight:600}
+.g .k{font:600 10px/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--mute)}
+.g .score .v{font:700 54px/1 var(--sans);font-variant-numeric:tabular-nums;color:var(--gold);letter-spacing:-.02em;margin-top:6px}
+.g .score .cb{font:600 12px/1 var(--sans);color:var(--reed);margin-top:8px}
+.g .timer .v{font:500 26px/1 var(--sans);font-variant-numeric:tabular-nums;color:var(--reed);margin-top:6px}
+.g .ticks{display:grid;grid-template-columns:repeat(6,1fr);gap:5px;margin-top:10px}
+.g .ticks i{height:22px;border-radius:5px;border:1.3px solid rgba(201,217,107,.35)}
+.g .ticks i.on{background:var(--reed);border-color:var(--reed)}
+.g .basket .v{font:600 14px/1 var(--sans);margin-top:10px;font-variant-numeric:tabular-nums}
+.g .basket .v s{text-decoration:none;color:var(--mute);font-weight:400}
+.g .basket .ms{font:400 12px/1 var(--sans);color:var(--mute);margin-top:8px}
+.g .streak .v{font:italic 400 24px/1 var(--serif);margin-top:6px}
+.g .streak .v small{font:600 10px/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--mute);margin-left:6px;font-style:normal}
+.g .field{border-radius:14px;overflow:hidden;box-shadow:inset 0 0 0 1px rgba(201,217,107,.12)}
+.g--m .field{border-radius:0}
+.g--m .brand .nm{font-size:26px}
+.g--m .score .v{font-size:30px;margin-top:4px}
+.g--m .timer .v{font-size:20px;margin-top:4px}
+.g--m .rule{font-size:12.5px}
+.g--m .ticks{grid-template-columns:repeat(12,1fr);gap:4px;margin-top:8px}
+.g--m .ticks i{height:16px;border-radius:4px}
+.g--m .streak .v{font-size:20px}
+/* states */
+.btn1{display:inline-flex;align-items:center;gap:10px;background:#e3b04b;color:#16301f;font:700 13px/1 "Helvetica Neue",Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;padding:14px 26px;border-radius:999px}
+
+</style>
+</head>
+<body>
+<div class="sheet">
+  <header class="sh-head">
+    <div class="sh-id"><div class="k">Faucille · V1 · page « Jeu » · planche 01</div><h1>Étang au crépuscule</h1><div class="k" style="margin-top:12px">Direction 01 · de départ, poussée au bout</div></div>
+    <p class="sh-why"><b>Le calme d'abord.</b> Un étang vert profond à l'heure où la lumière baisse ; les roseaux sont la seule matière claire, et l'or du crépuscule n'apparaît que pour <b>le geste</b> : le coup de faucille, le score, le temps qui reste. Lecture en 5 secondes : ce qui est clair tombe, ce qui est or vient de vous. Pas de bruit d'arcade : aucun flash, aucun tremblement d'écran.</p>
+    <div class="sh-spec"><div class="sw"><span style="background:#16301f;color:#c9d96b">#16301f<br>Eau</span><span style="background:#0c1b11;color:#c9d96b">#0c1b11<br>Fond d'eau</span><span style="background:#c9d96b;color:#16301f">#c9d96b<br>Roseau</span><span style="background:#a7b54f;color:#16301f">#a7b54f<br>Épi</span><span style="background:#e3b04b;color:#16301f">#e3b04b<br>Crépuscule · accent unique</span></div><p class="ty">Titres : serif contrastée italique (Bodoni / Didot → P052 en repli). Score et chiffres : grotesque, chiffres tabulaires. Libellés : grotesque 11 px capitales espacées.</p></div>
+  </header>
+  <div class="frames">
+    <div>
+      <div class="fr-l">Desktop · 1440 × 900 · post déplié dans le feed</div>
+      <div class="desk">
+        <div class="d-top"><div class="d-logo"></div><div class="d-search">Search</div><div class="d-user"></div></div>
+        <div class="d-body">
+          <div class="d-nav"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+          <div class="post">
+            <div class="post-h"><span class="av">F</span><b>r/faucille_daily</b> · u/faucille-app · 2 h</div>
+            <div class="post-t">Faucille — today's pond, Nov 18</div>
+            <div class="post-body"><div class="g g--d">
+  <div class="brand"><div class="nm">Faucille</div><div class="dy">Pond · Wed Nov 18</div></div>
+  <div class="rule">Tap a lane to <b>cut the stem</b> before it hits the water.</div>
+  <div class="field" style="width:328px;height:656px"><svg viewBox="0 0 328.0 656.0" width="328.0" height="656.0" xmlns="http://www.w3.org/2000/svg" style="display:block"><rect width="328.0" height="656.0" fill="#16301f"/><defs><linearGradient id="g1_328_656" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1e3d28"/><stop offset="1" stop-color="#16301f"/></linearGradient></defs><rect width="328.0" height="586.0" fill="url(#g1_328_656)"/><path d="M9.8 586.0 L3.8 263.7" stroke="#0f2417" stroke-width="5.0" stroke-linecap="round"/><path d="M23.0 586.0 L29.0 339.9" stroke="#0f2417" stroke-width="5.0" stroke-linecap="round"/><path d="M311.6 586.0 L305.6 293.0" stroke="#0f2417" stroke-width="5.0" stroke-linecap="round"/><path d="M323.1 586.0 L329.1 222.7" stroke="#0f2417" stroke-width="5.0" stroke-linecap="round"/><path d="M298.5 586.0 L292.5 386.8" stroke="#0f2417" stroke-width="5.0" stroke-linecap="round"/><line x1="82.0" y1="0" x2="82.0" y2="586.0" stroke="#c9d96b" stroke-opacity=".07"/><line x1="164.0" y1="0" x2="164.0" y2="586.0" stroke="#c9d96b" stroke-opacity=".07"/><line x1="246.0" y1="0" x2="246.0" y2="586.0" stroke="#c9d96b" stroke-opacity=".07"/><rect x="0" y="146.5" width="328.0" height="439.5" fill="#c9d96b" opacity=".035"/><line x1="0" y1="146.5" x2="328.0" y2="146.5" stroke="#c9d96b" stroke-opacity=".22" stroke-dasharray="2 6"/><rect y="586.0" width="328.0" height="70.0" fill="#0c1b11"/><line x1="0" y1="586.0" x2="328.0" y2="586.0" stroke="#c9d96b" stroke-opacity=".5" stroke-width="1.2"/><line x1="0.0" y1="600.0" x2="328.0" y2="600.0" stroke="#c9d96b" stroke-opacity="0.16" stroke-dasharray="30.0 18.0"/><line x1="26.2" y1="616.0" x2="295.2" y2="616.0" stroke="#c9d96b" stroke-opacity="0.12" stroke-dasharray="30.0 18.0"/><line x1="52.5" y1="636.0" x2="262.4" y2="636.0" stroke="#c9d96b" stroke-opacity="0.08" stroke-dasharray="30.0 18.0"/><ellipse cx="41.0" cy="590.0" rx="10.0" ry="3.0" fill="none" stroke="#c9d96b" stroke-opacity="0.6"/><ellipse cx="41.0" cy="590.0" rx="22.0" ry="6.0" fill="none" stroke="#c9d96b" stroke-opacity="0.42"/><ellipse cx="41.0" cy="590.0" rx="34.0" ry="9.0" fill="none" stroke="#c9d96b" stroke-opacity="0.24"/><g opacity="1"><path d="M41.0 97.8 L41.0 257.8" stroke="#c9d96b" stroke-width="2.6" stroke-linecap="round"/><rect x="36.0" y="111.8" width="10.0" height="45.0" rx="5.0" fill="#a7b54f"/><path d="M41.0 205.3 q 16.0 -10.0 22.0 -40.0" stroke="#c9d96b" stroke-width="1.6" fill="none" stroke-linecap="round" opacity=".75"/></g><path d="M65.0 282.7 Q 117.0 226.7 179.0 256.7 Q 119.0 238.7 65.0 282.7 Z" fill="#e3b04b"/><path d="M53.0 290.7 Q 113.0 214.7 187.0 250.7" stroke="#e3b04b" stroke-width="1.0" fill="none" opacity=".35"/><g transform="rotate(24 123.0 254.7) translate(10.0 -14.0)"><path d="M123.0 150.7 L123.0 254.7" stroke="#c9d96b" stroke-width="2.6" stroke-linecap="round"/><rect x="118.0" y="160.7" width="10.0" height="44.0" rx="5.0" fill="#a7b54f"/></g><path d="M125.0 270.7 L127.0 308.7" stroke="#c9d96b" stroke-width="2.6" stroke-linecap="round" opacity=".7"/><text x="153.0" y="296.7" font-family="var(--sans)" font-weight="700" font-size="15.0" fill="#e3b04b">+10</text><g opacity="0.42"><path d="M205.0 -48.7 L205.0 111.3" stroke="#c9d96b" stroke-width="2.6" stroke-linecap="round"/><rect x="200.0" y="-34.7" width="10.0" height="45.0" rx="5.0" fill="#a7b54f"/><path d="M205.0 58.8 q 16.0 -10.0 22.0 -40.0" stroke="#c9d96b" stroke-width="1.6" fill="none" stroke-linecap="round" opacity=".75"/></g><path d="M287.0 588.0 L287.0 692.2" stroke="#c9d96b" stroke-opacity=".18" stroke-width="2.6"/><ellipse cx="287.0" cy="589.0" rx="16.0" ry="4.0" fill="none" stroke="#e3b04b" stroke-dasharray="3 3"/><g opacity="1"><path d="M287.0 349.8 L287.0 509.8" stroke="#c9d96b" stroke-width="2.6" stroke-linecap="round"/><rect x="282.0" y="363.8" width="10.0" height="45.0" rx="5.0" fill="#a7b54f"/><path d="M287.0 457.3 q 16.0 -10.0 22.0 -40.0" stroke="#c9d96b" stroke-width="1.6" fill="none" stroke-linecap="round" opacity=".75"/><circle cx="287.0" cy="509.8" r="4.0" fill="#e3b04b"/></g><line x1="0" y1="1.5" x2="142.1" y2="1.5" stroke="#e3b04b" stroke-width="3.0"/></svg></div>
+  <div class="score"><div class="k">Score</div><div class="v">65</div><div class="cb">×3 in a row</div></div>
+  <div class="timer"><div class="k">Left</div><div class="v">0:26</div></div>
+  <div class="basket"><div class="k">Basket</div><div class="ticks"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></div><div class="v">9 <s>/ 12 stems</s></div><div class="ms">1 in the water</div></div>
+  <div class="streak"><div class="k">Streak</div><div class="v">6&nbsp;<small>days</small></div></div>
+</div></div>
+            <div class="post-f"><span>214 comments</span><span>Share</span></div>
+          </div>
+          <div class="d-side">
+            <div class="card"><h4>r/faucille_daily</h4>One pond a day. Same reeds for everyone.</div>
+            <div class="card"><h4>Comments</h4>
+              <div class="cm"><b>u/marsh_wren</b>Basket full on the last stem. Lane 3 is evil after 0:40.</div>
+              <div class="cm"><b>u/low_tide</b>9 day streak and I still panic on the double drops.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="fr-l">Mobile · 390 × 844 · contexte réel du post</div>
+      <div class="mob">
+        <div class="m-status"><span>9:41</span><span>●●● ▮</span></div>
+        <div class="m-bar"><span class="bk">‹</span>r/faucille_daily</div>
+        <div class="m-post"><div class="post-t">Faucille — today's pond, Nov 18</div></div>
+        <div class="m-game"><div class="g g--m">
+  <div class="brand"><div class="nm">Faucille</div><div class="dy">Pond · Wed Nov 18</div></div>
+  <div class="rule">Tap a lane to <b>cut the stem</b> before it hits the water.</div>
+  <div class="field" style="width:390px;height:494px"><svg viewBox="0 0 390.0 494.0" width="390.0" height="494.0" xmlns="http://www.w3.org/2000/svg" style="display:block"><rect width="390.0" height="494.0" fill="#16301f"/><defs><linearGradient id="g1_390_494" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1e3d28"/><stop offset="1" stop-color="#16301f"/></linearGradient></defs><rect width="390.0" height="424.0" fill="url(#g1_390_494)"/><path d="M11.7 424.0 L5.7 190.8" stroke="#0f2417" stroke-width="5.0" stroke-linecap="round"/><path d="M27.3 424.0 L33.3 245.9" stroke="#0f2417" stroke-width="5.0" stroke-linecap="round"/><path d="M370.5 424.0 L364.5 212.0" stroke="#0f2417" stroke-width="5.0" stroke-linecap="round"/><path d="M384.1 424.0 L390.1 161.1" stroke="#0f2417" stroke-width="5.0" stroke-linecap="round"/><path d="M354.9 424.0 L348.9 279.8" stroke="#0f2417" stroke-width="5.0" stroke-linecap="round"/><line x1="97.5" y1="0" x2="97.5" y2="424.0" stroke="#c9d96b" stroke-opacity=".07"/><line x1="195.0" y1="0" x2="195.0" y2="424.0" stroke="#c9d96b" stroke-opacity=".07"/><line x1="292.5" y1="0" x2="292.5" y2="424.0" stroke="#c9d96b" stroke-opacity=".07"/><rect x="0" y="106.0" width="390.0" height="318.0" fill="#c9d96b" opacity=".035"/><line x1="0" y1="106.0" x2="390.0" y2="106.0" stroke="#c9d96b" stroke-opacity=".22" stroke-dasharray="2 6"/><rect y="424.0" width="390.0" height="70.0" fill="#0c1b11"/><line x1="0" y1="424.0" x2="390.0" y2="424.0" stroke="#c9d96b" stroke-opacity=".5" stroke-width="1.2"/><line x1="0.0" y1="438.0" x2="390.0" y2="438.0" stroke="#c9d96b" stroke-opacity="0.16" stroke-dasharray="30.0 18.0"/><line x1="31.2" y1="454.0" x2="351.0" y2="454.0" stroke="#c9d96b" stroke-opacity="0.12" stroke-dasharray="30.0 18.0"/><line x1="62.4" y1="474.0" x2="312.0" y2="474.0" stroke="#c9d96b" stroke-opacity="0.08" stroke-dasharray="30.0 18.0"/><ellipse cx="48.8" cy="428.0" rx="10.0" ry="3.0" fill="none" stroke="#c9d96b" stroke-opacity="0.6"/><ellipse cx="48.8" cy="428.0" rx="22.0" ry="6.0" fill="none" stroke="#c9d96b" stroke-opacity="0.42"/><ellipse cx="48.8" cy="428.0" rx="34.0" ry="9.0" fill="none" stroke="#c9d96b" stroke-opacity="0.24"/><g opacity="1"><path d="M48.8 49.4 L48.8 186.6" stroke="#c9d96b" stroke-width="2.6" stroke-linecap="round"/><rect x="43.8" y="63.4" width="10.0" height="38.2" rx="5.0" fill="#a7b54f"/><path d="M48.8 142.0 q 16.0 -10.0 22.0 -40.0" stroke="#c9d96b" stroke-width="1.6" fill="none" stroke-linecap="round" opacity=".75"/></g><path d="M88.2 202.2 Q 140.2 146.2 202.2 176.2 Q 142.2 158.2 88.2 202.2 Z" fill="#e3b04b"/><path d="M76.2 210.2 Q 136.2 134.2 210.2 170.2" stroke="#e3b04b" stroke-width="1.0" fill="none" opacity=".35"/><g transform="rotate(24 146.2 174.2) translate(10.0 -14.0)"><path d="M146.2 70.2 L146.2 174.2" stroke="#c9d96b" stroke-width="2.6" stroke-linecap="round"/><rect x="141.2" y="80.2" width="10.0" height="44.0" rx="5.0" fill="#a7b54f"/></g><path d="M148.2 190.2 L150.2 228.2" stroke="#c9d96b" stroke-width="2.6" stroke-linecap="round" opacity=".7"/><text x="176.2" y="216.2" font-family="var(--sans)" font-weight="700" font-size="15.0" fill="#e3b04b">+10</text><g opacity="0.42"><path d="M243.8 -56.6 L243.8 80.6" stroke="#c9d96b" stroke-width="2.6" stroke-linecap="round"/><rect x="238.8" y="-42.6" width="10.0" height="38.2" rx="5.0" fill="#a7b54f"/><path d="M243.8 36.0 q 16.0 -10.0 22.0 -40.0" stroke="#c9d96b" stroke-width="1.6" fill="none" stroke-linecap="round" opacity=".75"/></g><path d="M341.2 426.0 L341.2 509.1" stroke="#c9d96b" stroke-opacity=".18" stroke-width="2.6"/><ellipse cx="341.2" cy="427.0" rx="16.0" ry="4.0" fill="none" stroke="#e3b04b" stroke-dasharray="3 3"/><g opacity="1"><path d="M341.2 231.7 L341.2 368.9" stroke="#c9d96b" stroke-width="2.6" stroke-linecap="round"/><rect x="336.2" y="245.7" width="10.0" height="38.2" rx="5.0" fill="#a7b54f"/><path d="M341.2 324.4 q 16.0 -10.0 22.0 -40.0" stroke="#c9d96b" stroke-width="1.6" fill="none" stroke-linecap="round" opacity=".75"/><circle cx="341.2" cy="368.9" r="4.0" fill="#e3b04b"/></g><line x1="0" y1="1.5" x2="169.0" y2="1.5" stroke="#e3b04b" stroke-width="3.0"/></svg></div>
+  <div class="score"><div class="k">Score</div><div class="v">65</div><div class="cb">×3 in a row</div></div>
+  <div class="timer"><div class="k">Left</div><div class="v">0:26</div></div>
+  <div class="basket"><div class="k">Basket</div><div class="ticks"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></div><div class="v">9 <s>/ 12 stems</s></div><div class="ms">1 in the water</div></div>
+  <div class="streak"><div class="k">Streak</div><div class="v">6&nbsp;<small>days</small></div></div>
+</div></div>
+        <div class="m-foot"><span>214 comments</span><span>Share</span></div>
+      </div>
+    </div>
+  </div>
+  <section class="states">
+    <div class="fr-l">États des composants</div>
+    <div class="st-row"><div class="st"><div class="st-box" style="background:#16301f;color:#c9d96b"><div style="height:230px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:0 10px;text-align:center;font:400 12.5px/1.4 var(--sans)"><span style="opacity:.75">60 seconds · 12 stems to fill the basket</span><span class="btn1">Enter the reeds</span></div></div><b>Prêt</b><i>un seul bouton plein ; la règle en une ligne au-dessus</i></div><div class="st"><div class="st-box" style="background:#16301f;color:#c9d96b"><svg viewBox="0 0 170.0 230.0" width="170.0" height="230.0" xmlns="http://www.w3.org/2000/svg" style="display:block"><rect width="170.0" height="230.0" fill="#16301f"/><defs><linearGradient id="g1_170_230" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1e3d28"/><stop offset="1" stop-color="#16301f"/></linearGradient></defs><rect width="170.0" height="174.0" fill="url(#g1_170_230)"/><rect x="0" y="43.5" width="170.0" height="130.5" fill="#c9d96b" opacity=".035"/><line x1="0" y1="43.5" x2="170.0" y2="43.5" stroke="#c9d96b" stroke-opacity=".22" stroke-dasharray="2 6"/><rect y="174.0" width="170.0" height="56.0" fill="#0c1b11"/><line x1="0" y1="174.0" x2="170.0" y2="174.0" stroke="#c9d96b" stroke-opacity=".5" stroke-width="1.0"/><line x1="0.0" y1="185.2" x2="170.0" y2="185.2" stroke="#c9d96b" stroke-opacity="0.16" stroke-dasharray="24.0 14.4"/><line x1="13.6" y1="198.0" x2="153.0" y2="198.0" stroke="#c9d96b" stroke-opacity="0.12" stroke-dasharray="24.0 14.4"/><line x1="27.2" y1="214.0" x2="136.0" y2="214.0" stroke="#c9d96b" stroke-opacity="0.08" stroke-dasharray="24.0 14.4"/><g opacity="0.42"><path d="M85.0 -39.3 L85.0 20.9" stroke="#c9d96b" stroke-width="2.08" stroke-linecap="round"/><rect x="81.0" y="-28.1" width="8.0" height="15.7" rx="4.0" fill="#a7b54f"/><path d="M85.0 2.6 q 12.8 -8.0 17.6 -32.0" stroke="#c9d96b" stroke-width="1.2800000000000002" fill="none" stroke-linecap="round" opacity=".75"/></g></svg></div><b>Trop tôt</b><i>tige au-dessus de la ligne : estompée, le toucher ne fait rien</i></div><div class="st"><div class="st-box" style="background:#16301f;color:#c9d96b"><svg viewBox="0 0 170.0 230.0" width="170.0" height="230.0" xmlns="http://www.w3.org/2000/svg" style="display:block"><rect width="170.0" height="230.0" fill="#16301f"/><defs><linearGradient id="g1_170_230" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1e3d28"/><stop offset="1" stop-color="#16301f"/></linearGradient></defs><rect width="170.0" height="174.0" fill="url(#g1_170_230)"/><rect x="0" y="43.5" width="170.0" height="130.5" fill="#c9d96b" opacity=".035"/><line x1="0" y1="43.5" x2="170.0" y2="43.5" stroke="#c9d96b" stroke-opacity=".22" stroke-dasharray="2 6"/><rect y="174.0" width="170.0" height="56.0" fill="#0c1b11"/><line x1="0" y1="174.0" x2="170.0" y2="174.0" stroke="#c9d96b" stroke-opacity=".5" stroke-width="1.0"/><line x1="0.0" y1="185.2" x2="170.0" y2="185.2" stroke="#c9d96b" stroke-opacity="0.16" stroke-dasharray="24.0 14.4"/><line x1="13.6" y1="198.0" x2="153.0" y2="198.0" stroke="#c9d96b" stroke-opacity="0.12" stroke-dasharray="24.0 14.4"/><line x1="27.2" y1="214.0" x2="136.0" y2="214.0" stroke="#c9d96b" stroke-opacity="0.08" stroke-dasharray="24.0 14.4"/><g opacity="1"><path d="M85.0 35.5 L85.0 95.7" stroke="#c9d96b" stroke-width="2.08" stroke-linecap="round"/><rect x="81.0" y="46.7" width="8.0" height="15.7" rx="4.0" fill="#a7b54f"/><path d="M85.0 77.4 q 12.8 -8.0 17.6 -32.0" stroke="#c9d96b" stroke-width="1.2800000000000002" fill="none" stroke-linecap="round" opacity=".75"/></g></svg></div><b>Coupable</b><i>tige dans la zone : pleine valeur</i></div><div class="st"><div class="st-box" style="background:#16301f;color:#c9d96b"><svg viewBox="0 0 170.0 230.0" width="170.0" height="230.0" xmlns="http://www.w3.org/2000/svg" style="display:block"><rect width="170.0" height="230.0" fill="#16301f"/><defs><linearGradient id="g1_170_230" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1e3d28"/><stop offset="1" stop-color="#16301f"/></linearGradient></defs><rect width="170.0" height="174.0" fill="url(#g1_170_230)"/><rect x="0" y="43.5" width="170.0" height="130.5" fill="#c9d96b" opacity=".035"/><line x1="0" y1="43.5" x2="170.0" y2="43.5" stroke="#c9d96b" stroke-opacity=".22" stroke-dasharray="2 6"/><rect y="174.0" width="170.0" height="56.0" fill="#0c1b11"/><line x1="0" y1="174.0" x2="170.0" y2="174.0" stroke="#c9d96b" stroke-opacity=".5" stroke-width="1.0"/><line x1="0.0" y1="185.2" x2="170.0" y2="185.2" stroke="#c9d96b" stroke-opacity="0.16" stroke-dasharray="24.0 14.4"/><line x1="13.6" y1="198.0" x2="153.0" y2="198.0" stroke="#c9d96b" stroke-opacity="0.12" stroke-dasharray="24.0 14.4"/><line x1="27.2" y1="214.0" x2="136.0" y2="214.0" stroke="#c9d96b" stroke-opacity="0.08" stroke-dasharray="24.0 14.4"/><path d="M38.6 102.0 Q 80.2 57.2 129.8 81.2 Q 81.8 66.8 38.6 102.0 Z" fill="#e3b04b"/><path d="M29.0 108.4 Q 77.0 47.6 136.2 76.4" stroke="#e3b04b" stroke-width="0.8" fill="none" opacity=".35"/><g transform="rotate(24 85.0 79.6) translate(8.0 -11.2)"><path d="M85.0 -3.6 L85.0 79.6" stroke="#c9d96b" stroke-width="2.08" stroke-linecap="round"/><rect x="81.0" y="4.4" width="8.0" height="35.2" rx="4.0" fill="#a7b54f"/></g><path d="M86.6 92.4 L88.2 122.8" stroke="#c9d96b" stroke-width="2.08" stroke-linecap="round" opacity=".7"/><text x="109.0" y="113.2" font-family="var(--sans)" font-weight="700" font-size="12.0" fill="#e3b04b">+10</text></svg></div><b>Coupe</b><i>geste de faucille 180 ms, +10 qui monte et s'efface</i></div><div class="st"><div class="st-box" style="background:#16301f;color:#c9d96b"><svg viewBox="0 0 170.0 230.0" width="170.0" height="230.0" xmlns="http://www.w3.org/2000/svg" style="display:block"><rect width="170.0" height="230.0" fill="#16301f"/><defs><linearGradient id="g1_170_230" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1e3d28"/><stop offset="1" stop-color="#16301f"/></linearGradient></defs><rect width="170.0" height="174.0" fill="url(#g1_170_230)"/><rect x="0" y="43.5" width="170.0" height="130.5" fill="#c9d96b" opacity=".035"/><line x1="0" y1="43.5" x2="170.0" y2="43.5" stroke="#c9d96b" stroke-opacity=".22" stroke-dasharray="2 6"/><rect y="174.0" width="170.0" height="56.0" fill="#0c1b11"/><line x1="0" y1="174.0" x2="170.0" y2="174.0" stroke="#c9d96b" stroke-opacity=".5" stroke-width="1.0"/><line x1="0.0" y1="185.2" x2="170.0" y2="185.2" stroke="#c9d96b" stroke-opacity="0.16" stroke-dasharray="24.0 14.4"/><line x1="13.6" y1="198.0" x2="153.0" y2="198.0" stroke="#c9d96b" stroke-opacity="0.12" stroke-dasharray="24.0 14.4"/><line x1="27.2" y1="214.0" x2="136.0" y2="214.0" stroke="#c9d96b" stroke-opacity="0.08" stroke-dasharray="24.0 14.4"/><path d="M85.0 176.0 L85.0 215.4" stroke="#c9d96b" stroke-opacity=".18" stroke-width="2.1"/><ellipse cx="85.0" cy="176.4" rx="12.8" ry="3.2" fill="none" stroke="#e3b04b" stroke-dasharray="3 3"/><g opacity="1"><path d="M85.0 96.4 L85.0 156.6" stroke="#c9d96b" stroke-width="2.08" stroke-linecap="round"/><rect x="81.0" y="107.6" width="8.0" height="15.7" rx="4.0" fill="#a7b54f"/><path d="M85.0 138.3 q 12.8 -8.0 17.6 -32.0" stroke="#c9d96b" stroke-width="1.2800000000000002" fill="none" stroke-linecap="round" opacity=".75"/><circle cx="85.0" cy="156.6" r="3.2" fill="#e3b04b"/></g></svg></div><b>Danger</b><i>pointe à < 10 % de l'eau : l'eau annonce l'impact</i></div><div class="st"><div class="st-box" style="background:#16301f;color:#c9d96b"><svg viewBox="0 0 170.0 230.0" width="170.0" height="230.0" xmlns="http://www.w3.org/2000/svg" style="display:block"><rect width="170.0" height="230.0" fill="#16301f"/><defs><linearGradient id="g1_170_230" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1e3d28"/><stop offset="1" stop-color="#16301f"/></linearGradient></defs><rect width="170.0" height="174.0" fill="url(#g1_170_230)"/><rect x="0" y="43.5" width="170.0" height="130.5" fill="#c9d96b" opacity=".035"/><line x1="0" y1="43.5" x2="170.0" y2="43.5" stroke="#c9d96b" stroke-opacity=".22" stroke-dasharray="2 6"/><rect y="174.0" width="170.0" height="56.0" fill="#0c1b11"/><line x1="0" y1="174.0" x2="170.0" y2="174.0" stroke="#c9d96b" stroke-opacity=".5" stroke-width="1.0"/><line x1="0.0" y1="185.2" x2="170.0" y2="185.2" stroke="#c9d96b" stroke-opacity="0.16" stroke-dasharray="24.0 14.4"/><line x1="13.6" y1="198.0" x2="153.0" y2="198.0" stroke="#c9d96b" stroke-opacity="0.12" stroke-dasharray="24.0 14.4"/><line x1="27.2" y1="214.0" x2="136.0" y2="214.0" stroke="#c9d96b" stroke-opacity="0.08" stroke-dasharray="24.0 14.4"/><ellipse cx="85.0" cy="177.2" rx="8.0" ry="2.4" fill="none" stroke="#c9d96b" stroke-opacity="0.6"/><ellipse cx="85.0" cy="177.2" rx="17.6" ry="4.8" fill="none" stroke="#c9d96b" stroke-opacity="0.42"/><ellipse cx="85.0" cy="177.2" rx="27.2" ry="7.2" fill="none" stroke="#c9d96b" stroke-opacity="0.24"/></svg></div><b>Raté</b><i>la tige touche l'eau : ronds dans l'eau, −25, série de coupes remise à 0</i></div><div class="st"><div class="st-box" style="background:#16301f;color:#c9d96b"><div style="height:230px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px"><span style="font:600 10px/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;opacity:.6">Left</span><span style="font:600 40px/1 var(--sans);font-variant-numeric:tabular-nums;color:#e3b04b">0:05</span></div></div><b>Chrono</b><i>dernières 10 s : le chiffre passe à l'accent, rien ne clignote</i></div></div>
+  </section>
+  <p class="foot">Planche figée à 0:34 de jeu : 9 coupes sur 12, 1 raté, score 65 (10 par coupe, −25 par raté, +50 au quota), série de 6 jours. Couloir 1 : tige coupable · couloir 2 : coupe en cours · couloir 3 : tige trop haute · couloir 4 : tige sur le point de toucher l'eau. Polices système en pile, aucune requête réseau.</p>
+</div>
+</body>
+</html>
